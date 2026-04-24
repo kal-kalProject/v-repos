@@ -26,6 +26,13 @@
     "url": "https://github.com/kal-kalProject/ui.git",
     "branch": "main",
     "notes": "ts proyects, clonado read-only vía HTTPS + Git Credential Manager."
+  },
+   {
+    "name": "vortech",
+    "source_type": "clone",
+    "url": "https://github.com/kal-kalProject/vortech.git",
+    "branch": "main",
+    "notes": "multi lang projects, clonado read-only vía HTTPS + Git Credential Manager."
   }
 
 ]
