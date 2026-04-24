@@ -1,5 +1,6 @@
 ---
 kind: source-reference
+source_repo: kalProject.MsAccess
 repo_name: kalProject.MsAccess
 source_type: clone
 source_url: https://github.com/kalProject/kalProject.MsAccess.git
