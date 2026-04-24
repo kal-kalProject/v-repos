@@ -12,7 +12,7 @@ inventoried_by: cursor-inventario-fase1
 
 ## Bugs
 
-Ninguno detectado. Justificación: Fase 1 no ejecuta la aplicación ni pruebas; no hay acta de regresión frente a una especificación concreta. Varios usos de `NotSupportedException` bajo clases in-memory o setters de solo lectura se interpretan como **diseño explícito** (comportamiento documentado en fuente), no como defecto, con evidencia en `kalProject.MsAccess/src/Database/QueryDefinitions/QueryDefinition.cs:103-138` (muestras de rutas aún no implementadas) y pares análogos bajo el mismo patrón en el módulo de extensiones
+Ninguno detectado. Justificación: Fase 1 no ejecuta la aplicación ni pruebas; no hay acta de regresión frente a una especificación concreta. Varios usos de `NotSupportedException` bajo clases in-memory o setters de solo lectura se interpretan como **diseño explícito** (comportamiento documentado en fuente), no como defecto, con evidencia en `kalProject.MsAccess/src/Database/QueryDefinitions/QueryDefinition.cs:103-138` y un ejemplo de setter en el paquete de extensiones: `kalProject.MsAccess.Extensions/src/Database/QueryDefinitions/DaoQueryDefinition.cs:58-65` (métodos con `set` que arrojan)
 
 ## Duplicaciones internas
 
@@ -27,7 +27,7 @@ Ninguno detectado. Justificación: Fase 1 no ejecuta la aplicación ni pruebas; 
 | # | Tipo | Ubicación | Descripción |
 |---|------|------------|-------------|
 | 1 | manifest ausente (Angular) | `Clients/angular-client/README.md:1-19` (feature list) vs. ausencia de `package.json` bajo un listado de directorio al 2026-04-24 | Proyecto TypeScript/Angular de ejemplo en estado incompleto para build reproducible sin añadir manifest o paquetes |
-| 2 | solución .slnx | `kalProject.MsAccess.slnx:1-14` (12 proyectos) | No incorpora `Clients/netframework48-client` ni `Originals/Microsoft.Office.Core` (ver descubrimiento de `.csproj` vía búsqueda de archivos en el repositorio; la solución y el disco no coinciden al 100%) — posible riesgo de “proyecto huérfano” en abrir en IDE un árbol parcial |
+| 2 | solución .slnx | `kalProject.MsAccess.slnx:1-14` (12 proyectos listados) vs. proyectos presentes p. ej. `Clients/netframework48-client/NetFramework48Client.csproj:1` y `Originals/Microsoft.Office.Core/office.csproj:1` (existen en disco; no listados en el fragmento de solución) | Apertura en IDE con árbol parcial respecto al disco; no es import roto, es omisión de inclusión en la solución |
 | 3 | documentación a medio migrar | `README.md:3-9` (propuesta) | Plan a nivel de repositorio expuesto como hipótesis; alineación con el código gRPC+ASP.NET a validar (no se marca como `TODO` en fuente) |
 
 **Imports internos** no auditados vía análisis de módulo del compilador. No se añadieron filas concretas de "import a path faltante" salvo riesgo explícito en nota (2) sobre apertura de la solución.
@@ -36,16 +36,16 @@ Ninguno detectado. Justificación: Fase 1 no ejecuta la aplicación ni pruebas; 
 
 | # | Categoría | Ubicación | Observación |
 |---|------------|------------|-------------|
-| 1 | archivo-monolítico (C#) | `kalProject.Client/src/Transport/BridgeWebSocketClient.cs` (aprox. 674 LOC excl. obj/bin) | Densidad de lógica en un solo tipo de transporte; oportunidad de modularizar |
-| 2 | archivo-monolítico (C#) | `kalProject.MsAccess.Bridge/src/Services/AccessBridgeService.cs` (482 LOC) | Gran handler de servicio; revisión de SRP en Fase 2 |
-| 3 | archivos masivos bajo PIA/TLB (vendor-like) | `Originals/Microsoft.Office.Interop.Access/FormClass.cs:1` (LOC reportado 3870) | Interop no apto para edición humana, peso y coste de merge |
-| 4 | múltiples plataformas de cliente a mantener | `Clients/*` (varios) | Carga de mantenimiento: Node, Pio, TS, C#x2; ver resúmenes de paquetes |
+| 1 | archivo-monolítico (C#) | `kalProject.Client/src/Transport/BridgeWebSocketClient.cs:1` (mismo archivo, elevado nº de LOC en conteo estático) | Densidad de lógica en un solo tipo de transporte; oportunidad de modularizar |
+| 2 | archivo-monolítico (C#) | `kalProject.MsAccess.Bridge/src/Services/AccessBridgeService.cs:1` (mismo archivo, cientos de LOC) | Gran handler de servicio; revisión de SRP en Fase 2 |
+| 3 | archivos masivos bajo PIA/TLB (vendor-like) | `Originals/Microsoft.Office.Interop.Access/FormClass.cs:1` (clase de miles de LOC) | Interop no apto para edición humana, peso y coste de merge |
+| 4 | múltiples plataformas de cliente a mantener | `Clients/nodejs-client/client.js:1`; `Clients/platformio-client/src/main.cpp:1`; `Clients/angular-client/src/kalproject-client.ts:1` (muestras multi-lenguaje bajo `Clients/`) | Carga de mantenimiento: varios lenguaje-stacks; contratos a alinear en Fase 2 |
 
 Criterio >500 LOC aplicado a fuentes bajo análisis de conteo; interop bajo `Originals` a menudo supera ampliamente el umbral, sin citar más allá de los ejemplos
 
 ## Tests
 
-- **Archivos `*Tests.cs`:** 1 coincidencia de patrón de nombre, `Originals/Microsoft.Office.Core/PropertyTests.cs` (puede no ser un suite xUnit) — búsqueda de nombre, sin clasificación del framework de prueba sin inspección adicional; evidencia: existencia de archivo
+- **Archivos `*Tests.cs`:** 1 coincidencia de patrón de nombre, con evidencia de archivo: `Originals/Microsoft.Office.Core/PropertyTests.cs:1` (puede no ser un suite xUnit) — búsqueda de nombre, sin clasificación del framework de prueba sin inspección adicional
 - **Archivos `*.test.*` / `*.spec.*`:** 0 a nivel de búsqueda de nombre bajo el repo
 - **`#[test]` (Rust) / otros:** 0, no aplica
 - **Estado de ejecución:** no verificado; Fase 1 no corre test runners. No se atribuye "tests verdes" ni "rojos" a este snapshot
