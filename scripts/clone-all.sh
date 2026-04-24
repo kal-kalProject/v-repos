@@ -4,19 +4,33 @@ set -euo pipefail
 # Propósito: Clona los repositorios con source_type=clone definidos en repos.json.
 # Inputs: repos.json
 # Outputs: Directorios en repos/<name>/ y archivos inventory/<name>/_meta/source.md
-
-if ! command -v jq &> /dev/null; then
-    echo "Error: 'jq' no está instalado. Es necesario para procesar repos.json."
-    exit 1
-fi
+# Dependencias: git, python (para parsear JSON)
 
 REPOS_JSON="repos.json"
 
-# Iterar sobre cada entrada en repos.json
-jq -c '.[]' "$REPOS_JSON" | while read -r repo; do
-    NAME=$(echo "$repo" | jq -r '.name')
-    EXAMPLE=$(echo "$repo" | jq -r '._example // false')
-    TYPE=$(echo "$repo" | jq -r '.source_type')
+# Extrae campos de un objeto JSON usando python (sin jq).
+json_get() {
+    local json="$1" field="$2" default="${3:-}"
+    python -c "
+import json, sys
+obj = json.loads(sys.argv[1])
+val = obj.get(sys.argv[2])
+print(val if val is not None else sys.argv[3])
+" "$json" "$field" "$default"
+}
+
+# Lee cada objeto del array como una línea JSON.
+mapfile -t REPOS < <(python -c "
+import json, sys
+data = json.load(open(sys.argv[1]))
+for item in data:
+    print(json.dumps(item, ensure_ascii=False))
+" "$REPOS_JSON")
+
+for repo in "${REPOS[@]}"; do
+    NAME=$(json_get "$repo" "name" "")
+    EXAMPLE=$(json_get "$repo" "_example" "false")
+    TYPE=$(json_get "$repo" "source_type" "")
 
     if [ "$EXAMPLE" = "true" ]; then
         echo "Saltando ejemplo: $NAME"
@@ -27,8 +41,8 @@ jq -c '.[]' "$REPOS_JSON" | while read -r repo; do
         continue
     fi
 
-    URL=$(echo "$repo" | jq -r '.url')
-    BRANCH=$(echo "$repo" | jq -r '.branch')
+    URL=$(json_get "$repo" "url" "")
+    BRANCH=$(json_get "$repo" "branch" "main")
     REPO_PATH="repos/$NAME"
 
     if [ -d "$REPO_PATH" ]; then
@@ -40,7 +54,6 @@ jq -c '.[]' "$REPOS_JSON" | while read -r repo; do
     mkdir -p "repos"
     git clone --branch "$BRANCH" --single-branch "$URL" "$REPO_PATH"
 
-    # Generar inventory/<name>/_meta/source.md
     SHA=$(git -C "$REPO_PATH" rev-parse HEAD)
     NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 

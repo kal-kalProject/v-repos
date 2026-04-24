@@ -11,6 +11,21 @@
     "source_type": "clone",
     "url": "https://github.com/v-alloy/v-cam.git",
     "branch": "main",
-    "notes": "con soft. Repo privado, clonado read-only vía HTTPS + Git Credential Manager."
+    "notes": "Cad/Cam/Cnc Control soft. Repo privado, clonado read-only vía HTTPS + Git Credential Manager."
+  },
+  {
+    "name": "v-rust",
+    "source_type": "clone",
+    "url": "https://github.com/kal-kalProject/v-rust.git",
+    "branch": "main",
+    "notes": "TTM lang + platform c# Repo privado, clonado read-only vía HTTPS + Git Credential Manager."
+  },
+   {
+    "name": "ui",
+    "source_type": "clone",
+    "url": "https://github.com/kal-kalProject/ui.git",
+    "branch": "main",
+    "notes": "ts proyects, clonado read-only vía HTTPS + Git Credential Manager."
   }
+
 ]
