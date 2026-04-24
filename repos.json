@@ -1,0 +1,16 @@
+[
+  {
+    "name": "v-gen",
+    "source_type": "clone",
+    "url": "https://github.com/v-alloy/v-gen.git",
+    "branch": "main",
+    "notes": "Generador Vortech. Repo privado, clonado read-only vía HTTPS + Git Credential Manager."
+  },
+  {
+    "name": "v-cam",
+    "source_type": "clone",
+    "url": "https://github.com/v-alloy/v-cam.git",
+    "branch": "main",
+    "notes": "con soft. Repo privado, clonado read-only vía HTTPS + Git Credential Manager."
+  }
+]

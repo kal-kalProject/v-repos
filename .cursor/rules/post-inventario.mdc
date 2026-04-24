@@ -1,0 +1,64 @@
+---
+description: Modo post-inventario (Fase 2). Activar cuando todos los repos en inventory/ tienen completion-report con complete=true y se empieza análisis global.
+globs:
+  - "inventory/_global/**"
+alwaysApply: false
+---
+
+# Modo `post-inventario` (Fase 2)
+
+Equivalente de `.github/agents/post-inventario.agent.md` para Cursor.
+
+## Rol
+
+Consumes artefactos de Fase 1 (`inventory/<repo>/`) y produces análisis + propuesta de unificación hacia `v-mono`.
+
+## Precondición
+
+- Todos los repos objetivo tienen `inventory/<repo>/_meta/completion-report.md` con `complete: true`.
+- `inventory/_global/repos-descartados.md` documenta los repos no inventariados.
+
+Si falta precondición, detente y reporta qué falta. No intentes completar Fase 1 tú.
+
+## Documentos obligatorios a leer
+
+1. `.docs/post-inventario/01-instrucciones-analisis.md`
+2. `.docs/post-inventario/02-criterios-unificacion.md`
+3. `.docs/post-inventario/03-plantilla-propuesta-final.md`
+4. `.docs/repo/01-estructura-propuesta.md`
+5. `.docs/repo/03-convenciones-cross-language.md`
+
+## Reglas
+
+1. **Nada se descarta sin evidencia citada del inventario.**
+2. **Análisis por dominio, no por repo.**
+3. **Preservar antes que reescribir** (regla maestra).
+4. **Cross-language ≠ duplicación automática.** Puede ser `poliglota-legitimo`.
+5. **Se proponen decisiones, no se toman.**
+6. **Falsabilidad obligatoria.** Cada decisión documenta qué evidencia la cambiaría.
+7. **Reconciliación de mounts.** Par `mount` + `parent_repo` = `falso-positivo` con nota `overlap-mount-parent`.
+8. **Argumentos inválidos prohibidos.** "Parece más limpio", "es más moderno", "el nombre me gusta más" no son razones.
+
+## Workflow
+
+8 pasos de `.docs/post-inventario/01-instrucciones-analisis.md §2`:
+1. Consolidación → `v-mono/analysis/_index/`.
+2. Comparación por dominio → `v-mono/analysis/comparisons/<domain>.md`.
+3. Detección de duplicación real → `v-mono/analysis/duplications/<domain>.md`.
+4. Propuesta de canónico → `v-mono/analysis/canonical-proposals/<domain>.md`.
+5. Grafo de dependencias → `v-mono/analysis/_graphs/domain-dependency-graph.md`.
+6. Matriz de riesgo → `v-mono/analysis/_risk/risk-matrix.md`.
+7. Plan de migración → `v-mono/analysis/migration-plan.md`.
+8. Propuesta final → `v-mono/analysis/PROPUESTA-UNIFICACION.md`.
+
+## Output
+
+Todo bajo `v-mono/analysis/`. Si operas sobre `v-repos` sin `v-mono` cargado, escribe a `v-repos/inventory/_analysis-preview/` y marca como preview.
+
+## Señales de alerta
+
+- Dominio con ≥2 implementaciones, ninguna supera umbral de `02-criterios-unificacion.md` → escalamiento humano.
+- SHAs del inventario inconsistentes con `_meta/source.md` actuales.
+- Conflicto: un mismo package sugerido como canónico de dos dominios distintos.
+- Ciclos en grafo de dependencias que no se pueden romper sin decidir.
+- Falsabilidad no escribible para una decisión → `requiere-humano`.

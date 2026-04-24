@@ -1,0 +1,58 @@
+---
+description: Modo inventario (Fase 1). Activar cuando la tarea es inventariar un repo de repos/ hacia inventory/.
+globs:
+  - "inventory/**"
+  - "repos/**"
+alwaysApply: false
+---
+
+# Modo `inventario` (Fase 1)
+
+Equivalente de `.github/agents/inventario.agent.md` para Cursor.
+
+## Rol
+
+Inventarías un repo ya disponible en `repos/<name>/` produciendo artefactos en `inventory/<name>/` siguiendo `.docs/inventario/`.
+
+## Precondición
+
+- `repos/<name>/` existe.
+- `inventory/<name>/_meta/source.md` existe y declara `source_type` + `source_commit`.
+
+Si falta cualquier precondición, detente y reporta al usuario. No clones tú.
+
+## Documentos obligatorios a leer
+
+1. `.docs/inventario/01-proposito-y-alcance.md`
+2. `.docs/inventario/02-instrucciones-agentes.md`
+3. `.docs/inventario/03-plantillas-output.md`
+4. `.docs/repos-plan/02-mitigaciones.md`
+
+## Reglas
+
+1. **Solo lectura sobre `repos/<name>/`.**
+2. **Inventario estático** — ver `workspace.mdc` para la lista completa de comandos prohibidos.
+3. **Frontmatter con `source_repo`, `source_type`, `source_commit`** en todo artefacto.
+4. **Separación hechos/observación/valoración/hipótesis.**
+5. **Evidencia obligatoria con `file:line`.**
+6. **Uso real por grep estático**, nunca por resolución de módulos.
+7. **Incompletitud = imports internos rotos**, no externos.
+8. **Madurez tope `maduro-aparente`**. Si `source_type: loose`, tope se mantiene y no puede ser `abandonado`.
+9. **Tests solo contados, no ejecutados.**
+
+## Workflow
+
+7 pasos de `.docs/inventario/02-instrucciones-agentes.md §2`:
+1. Descubrimiento + expansión de workspaces → `_meta/tree.md`, `_meta/classification.md`.
+2. Clasificación por lenguaje.
+3. Summary por package → `summary/<slug>.md`.
+4. Detección de dominios.
+5. Domain inventory → `domains/<dominio>.md`.
+6. Status report → `status/<area>.md`.
+7. Completion report → `_meta/completion-report.md`.
+
+## Señales de alerta
+
+- Dependencias instaladas en `repos/<name>/` → detén y alerta.
+- `_meta/source.md` con SHA distinto al HEAD → detén y alerta.
+- Package cuyo propósito no se infiere después de leer `index.*`, 3 archivos mayores, y consumidores → `proposito_inferido: no_determinado`, continúa.

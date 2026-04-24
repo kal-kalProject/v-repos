@@ -1,0 +1,34 @@
+---
+description: Reglas transversales de v-repos. Siempre activas.
+alwaysApply: true
+---
+
+# v-repos — reglas transversales
+
+## Fuente de verdad
+
+`.docs/` contiene todas las reglas operativas. Antes de cualquier tarea, lee:
+- `.docs/README.md`
+- `.docs/repos-plan/01-estructura-v-repos.md`
+- `.docs/repos-plan/02-mitigaciones.md`
+
+Si algo de esta regla contradice `.docs/`, gana `.docs/`.
+
+## Reglas no negociables
+
+1. **`repos/` es solo lectura.** Nunca modificar archivos dentro de `repos/<name>/`. Escribir únicamente en `inventory/<name>/`.
+2. **Inventario estático.** Prohibido ejecutar: `pnpm install`, `npm install`, `yarn`, `cargo build/check/fetch`, `dotnet restore/build`, `pip install`, `cmake --build`, `pio run`, formateadores con auto-fix, linters con auto-fix, o cualquier comando que modifique archivos en `repos/<name>/`.
+3. **No clonar repos reales sin instrucción explícita.** Las entradas `"_example": true` en `repos.json` no se clonan.
+4. **`.gitignore` es inviolable.** No relajar patrones que bloquean dependencias.
+5. **Anclaje por SHA.** Todo artefacto en `inventory/` incluye `source_repo`, `source_type`, `source_commit` coherentes con `_meta/source.md`.
+6. **Separación hechos/observación/valoración/hipótesis.** Nunca mezclar en un mismo párrafo.
+7. **Evidencia obligatoria.** Toda afirmación cita `file:line` dentro de `repos/<name>/`.
+8. **`.docs/` no se edita aquí.** Es copia derivada de `v-mono/.docs/`. Cambios se hacen en `v-mono` y se re-sincronizan con `scripts/sync-docs.sh`.
+
+## Convenciones de output
+
+- Archivos markdown con frontmatter YAML donde la plantilla lo exija.
+- Paths siempre con `/`, nunca `\`.
+- Fechas ISO-8601.
+- Sin emojis en artefactos de inventario/análisis.
+- Sin prosa de marketing.

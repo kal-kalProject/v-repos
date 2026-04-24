@@ -1,0 +1,14 @@
+name: verify
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  gate-no-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run gate-no-deps
+        run: bash scripts/gate-no-deps.sh
