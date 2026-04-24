@@ -19,9 +19,9 @@ Tokens, presets y utilidades de tema (incl. integración con Prime/Tailwind seg�
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | @vortech/theming | `platform/theming` | ts | beta | theming producto |
-| 2 | v-theming | `platform/v-theming` | ts | beta | extensión / vitest |
-| 3 | @vortech/v-ui (color, estilos) | `platform/v-ui` | ts | beta | utilidades de color, estilos |
+| 1 | @vortech/theming | `platform/theming` | ts | maduro-aparente | theming producto |
+| 2 | v-theming | `platform/v-theming` | ts | maduro-aparente | extensión / vitest |
+| 3 | @vortech/v-ui (color, estilos) | `platform/v-ui` | ts | maduro-aparente | utilidades de color, estilos |
 
 ## 3. Responsabilidades cubiertas
 - **Paleta / helpers** → `platform/v-theming/tests`, `platform/theming/tests/helpers-integration.test.ts:1`

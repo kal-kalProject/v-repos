@@ -19,9 +19,9 @@ Alojamiento de extensiones, procesos y aplicaciones: `host/application-host`, `h
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | @vortech/application-host | `host/application-host` | ts | beta | application host |
-| 2 | @vortech/extensions-host | `host/host` | ts | beta | ext host |
-| 3 | @vortech/hosting | `packages/hosting` | ts | beta | hosting utilidades |
+| 1 | @vortech/application-host | `host/application-host` | ts | maduro-aparente | application host |
+| 2 | @vortech/extensions-host | `host/host` | ts | maduro-aparente | ext host |
+| 3 | @vortech/hosting | `packages/hosting` | ts | maduro-aparente | hosting utilidades |
 
 ## 3. Responsabilidades cubiertas
 - **Orquestar plugins / extensiones** (inferido de nombres; confirmar con lectura de `src/` en Fase 2).

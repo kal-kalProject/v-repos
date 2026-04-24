@@ -19,13 +19,13 @@ Herramientas de desarrollo: CLI, servidores de análisis, extensión VS Code, MC
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | @vortech/cli | `devtools/cli` | ts | beta | CLI |
-| 2 | @vortech/dev-server | `devtools/dev-server` | ts | beta | servidor de desarrollo |
-| 3 | @vortech/devtools | `devtools/devtools` | ts | beta | tareas de análisis de deps |
-| 4 | @vortech/devtools-sdk | `devtools/devtools-sdk` | ts | beta | SDK |
-| 5 | @vortech/mcp | `devtools/mcp` | ts | beta | MCP |
-| 6 | vortech-language-server | `devtools/ts-server` | ts | beta | LSP (solapa dominio lsp) |
-| 7 | vortech-platform-vscode | `devtools/vscode` | ts | beta | extensión |
+| 1 | @vortech/cli | `devtools/cli` | ts | maduro-aparente | CLI |
+| 2 | @vortech/dev-server | `devtools/dev-server` | ts | maduro-aparente | servidor de desarrollo |
+| 3 | @vortech/devtools | `devtools/devtools` | ts | maduro-aparente | tareas de análisis de deps |
+| 4 | @vortech/devtools-sdk | `devtools/devtools-sdk` | ts | maduro-aparente | SDK |
+| 5 | @vortech/mcp | `devtools/mcp` | ts | maduro-aparente | MCP |
+| 6 | vortech-language-server | `devtools/ts-server` | ts | maduro-aparente | LSP (solapa dominio lsp) |
+| 7 | vortech-platform-vscode | `devtools/vscode` | ts | maduro-aparente | extensión |
 | 8 | (incl. scripts raíz) | `package.json` (scripts) | — | — | orquesta `ng serve` etc. |
 
 ## 3. Responsabilidades cubiertas

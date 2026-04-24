@@ -19,7 +19,7 @@ Cliente HTTP de producto bajo `apis/http-client` (`@vortech/http-client`); vites
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | @vortech/http-client | `apis/http-client` | ts | beta | api HTTP |
+| 1 | @vortech/http-client | `apis/http-client` | ts | maduro-aparente | api HTTP |
 
 ## 3. Responsabilidades cubiertas
 - **Comunicación HTTP hacia servicios** — a enlazar con `packages/apis` y wire según usos reales (grep Fase 2).

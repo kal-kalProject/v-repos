@@ -1,6 +1,6 @@
 ---
 kind: source-reference
-repo_name: vortech
+source_repo: vortech
 source_type: clone
 source_url: https://github.com/kal-kalProject/vortech.git
 source_branch: main

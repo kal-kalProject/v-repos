@@ -19,9 +19,9 @@ Crates Rust bajo `rust-workspace/`: `v-alloy` (bin), `v-core` (lib mínima), `v-
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | v-alloy | `rust-workspace/alloy` | rust | beta | `vrust` binary |
-| 2 | v-core | `rust-workspace/core` | rust | beta | primitivas |
-| 3 | v-desk | `rust-workspace/desktop` | rust | beta | Tauri + tray (deps en `Cargo.toml:9-18`) |
+| 1 | v-alloy | `rust-workspace/alloy` | rust | maduro-aparente | `vrust` binary |
+| 2 | v-core | `rust-workspace/core` | rust | maduro-aparente | primitivas |
+| 3 | v-desk | `rust-workspace/desktop` | rust | maduro-aparente | Tauri + tray (deps en `Cargo.toml:9-18`) |
 
 ## 3. Responsabilidades cubiertas
 - **Desktop / tray, proceso a largo plazo (Alloy)**, **shell UI (Tauri)**.

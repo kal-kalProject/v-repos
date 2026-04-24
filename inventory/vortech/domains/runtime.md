@@ -19,11 +19,11 @@ Capa de ejecución de la plataforma: señales/atoms, ciclo de vida de host, y bi
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | @vortech/runtime | `packages/runtime` | ts | beta | librería runtime TS |
-| 2 | @vortech/browser / @vortech/node | `packages/runtime/browser`, `packages/runtime/node` | ts | beta | adaptadores |
-| 3 | v-runtime | `platform/v-runtime` | ts | beta | runtime v2 y pruebas |
-| 4 | v-core (rust) | `rust-workspace/core` | rust | beta | crate mínimo serde |
-| 5 | v-alloy | `rust-workspace/alloy` | rust | beta | bin `vrust` |
+| 1 | @vortech/runtime | `packages/runtime` | ts | maduro-aparente | librería runtime TS |
+| 2 | @vortech/browser / @vortech/node | `packages/runtime/browser`, `packages/runtime/node` | ts | maduro-aparente | adaptadores |
+| 3 | v-runtime | `platform/v-runtime` | ts | maduro-aparente | runtime v2 y pruebas |
+| 4 | v-core (rust) | `rust-workspace/core` | rust | maduro-aparente | crate mínimo serde |
+| 5 | v-alloy | `rust-workspace/alloy` | rust | maduro-aparente | bin `vrust` |
 
 ## 3. Responsabilidades cubiertas
 

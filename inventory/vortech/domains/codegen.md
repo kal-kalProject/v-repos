@@ -19,9 +19,9 @@ Motor y demos de plantillas, análisis de código: `packages/templates`, `packag
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | @vortech/templates | `packages/templates` | ts | beta | engine de templates |
-| 2 | @vortech/template-demo | `packages/template-demo` | ts | beta | demostración |
-| 3 | @vortech/code-analysis | `packages/code-analysis` | ts | beta | análisis estático |
+| 1 | @vortech/templates | `packages/templates` | ts | maduro-aparente | engine de templates |
+| 2 | @vortech/template-demo | `packages/template-demo` | ts | maduro-aparente | demostración |
+| 3 | @vortech/code-analysis | `packages/code-analysis` | ts | maduro-aparente | análisis estático |
 
 ## 3. Responsabilidades cubiertas
 - **Generación / evaluación de plantillas, pipelines de carga (loaders)**, y tooling de análisis — evidencia: `packages/templates/tests/*`, `platform/v-api-factory` (dominio adyacente).

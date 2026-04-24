@@ -9,7 +9,7 @@ inventoried_at: 2026-04-24T20:00:00Z
 inventoried_by: cursor-inventario-fase1
 source_repo: vortech
 source_commit: f55e8e0202c3ef2486d845bb87601c7366d76b90
-madurez: beta
+madurez: maduro-aparente
 ---
 
 # VirtualScreens.Agent
@@ -51,7 +51,7 @@ Package clasificado por manifest `VirtualScreens.Agent.csproj` en el monorepo Vo
 
 ## 7. Estado
 
-- **Madurez:** beta
+- **Madurez:** maduro-aparente
 - **Justificación:** criterio estático (Fase 1); tope `maduro-aparente` sin build.
 - **Build:** no ejecutado
 - **Tests:** (conteo de `*.test.*` / `*.spec.*` por carpeta; no ejecución)

@@ -19,11 +19,11 @@ Agente de sistema, contrato compartido, fleet, dashboard: paquetes bajo `system-
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | @system-agent/contract | `system-agent/contract` | ts | beta | contrato TS |
-| 2 | SystemAgent.Contract | `system-agent/contract/cs` | csharp | beta | ensamblado .NET compartido |
-| 3 | @system-agent/fleet-manager | `system-agent/fleet-manager` | ts | beta | gestor flota |
-| 4 | fleet-dashboard (Angular) | `system-agent/dashboard` | angular | beta | UI (sin `package.json` local) |
-| 5 | Agent (servicio) | `system-agent/agents/dotnet` | csharp | beta | servicio (NativeAOT option en csproj) |
+| 1 | @system-agent/contract | `system-agent/contract` | ts | maduro-aparente | contrato TS |
+| 2 | SystemAgent.Contract | `system-agent/contract/cs` | csharp | maduro-aparente | ensamblado .NET compartido |
+| 3 | @system-agent/fleet-manager | `system-agent/fleet-manager` | ts | maduro-aparente | gestor flota |
+| 4 | fleet-dashboard (Angular) | `system-agent/dashboard` | angular | maduro-aparente | UI (sin `package.json` local) |
+| 5 | Agent (servicio) | `system-agent/agents/dotnet` | csharp | maduro-aparente | servicio (NativeAOT option en csproj) |
 | 6 | (instalación) | `system-agent/install` | — | indeterminado | scripts/instalación sin inventario detallado aquí |
 
 ## 3. Responsabilidades cubiertas

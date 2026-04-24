@@ -9,9 +9,9 @@ classified_at: 2026-04-24T20:00:00Z
 total_packages: 82
 ---
 
-# Clasificación — `vortech`
+# Clasificación — vortech
 
-Cada fila es un **package/proyecto** bajo `repos/vortech/`. El path entre backticks identifica el directorio; coincide con un archivo en `../summary/<slug>.md` (slug = path con `/` → `_` en minúsculas).
+Cada fila es un **package/proyecto** bajo el clon (directorio de trabajo: repos/vortech en el meta-repo). El path en la primera columna (formato repositorio) coincide con un resumen en el directorio summary del inventario, con nombre de slug path con barras reemplazadas por guión bajo en minúsculas.
 
 ## Todos los packages (inventario completo Fase 1)
 
@@ -106,5 +106,5 @@ Cada fila es un **package/proyecto** bajo `repos/vortech/`. El path entre backti
 
 ## Notas
 
-- Nombre de carpeta `sokectio/`: mantiene el upstream de `socket.io` bajo un directorio con ortografía distinta; evidencia: `repos/vortech/sokectio/socket.io/package.json:1` (existe aunque el label sea no estándar).
+- Nombre de carpeta sokectio: mantiene el upstream de socket.io bajo un directorio con ortografía distinta; evidencia de existencia: archivo package.json en `sokectio/socket.io` línea 1 (prefijo de paquete en manifest).
 - Raíz `package.json` (`vortech-workspace`) no se duplica como fila: el workspace se describe en `tree.md` y en dependencias; evita path sin `/` requerido por el conteo de entradas.

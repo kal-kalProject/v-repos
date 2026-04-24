@@ -20,9 +20,9 @@ Inyección de dependencias, árboles de scopes e integración con hosting: `plat
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
 | 1 | v-core / plataforma | `platform/core` | ts | maduro-aparente | DI, tests extensos |
-| 2 | di-demo | `platform/di-demo` | ts | beta | demostración |
-| 3 | @vortech/hosting | `packages/hosting` | ts | beta | integración servidor |
-| 4 | @vortech/core | `packages/core` | ts | beta | middleware / builder |
+| 2 | di-demo | `platform/di-demo` | ts | maduro-aparente | demostración |
+| 3 | @vortech/hosting | `packages/hosting` | ts | maduro-aparente | integración servidor |
+| 4 | @vortech/core | `packages/core` | ts | maduro-aparente | middleware / builder |
 
 ## 3. Responsabilidades cubiertas
 

@@ -19,10 +19,10 @@ Sistema de layout estilo workbench, grillas, y componentes estructurales: `platf
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | @vortech/layout | `platform/layout` | ts | beta | layout base |
-| 2 | v-layout | `platform/v-layout` | ts | beta | extensión |
-| 3 | v-sdk / demo | `platform/sdk`, `platform/sdk/demo` | ts / angular | beta | demostración |
-| 4 | @vortech/v-ui (layout-related) | `platform/v-ui` | ts | beta | primitivas UI (árboles, etc.) |
+| 1 | @vortech/layout | `platform/layout` | ts | maduro-aparente | layout base |
+| 2 | v-layout | `platform/v-layout` | ts | maduro-aparente | extensión |
+| 3 | v-sdk / demo | `platform/sdk`, `platform/sdk/demo` | ts / angular | maduro-aparente | demostración |
+| 4 | @vortech/v-ui (layout-related) | `platform/v-ui` | ts | maduro-aparente | primitivas UI (árboles, etc.) |
 
 ## 3. Responsabilidades cubiertas
 

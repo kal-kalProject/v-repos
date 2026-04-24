@@ -19,8 +19,8 @@ Lenguaje y protocolo LSP: paquetes `platform/v-lsp` (LSP) y `devtools/ts-server`
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | @vortech/lsp | `platform/v-lsp` | ts | beta | núcleo LSP |
-| 2 | vortech-language-server | `devtools/ts-server` | ts | beta | servidor lenguaje |
+| 1 | @vortech/lsp | `platform/v-lsp` | ts | maduro-aparente | núcleo LSP |
+| 2 | vortech-language-server | `devtools/ts-server` | ts | maduro-aparente | servidor lenguaje |
 
 ## 3. Responsabilidades cubiertas
 - **Protocolo y tooling editor** — enlazado a extensión `devtools/vscode`.

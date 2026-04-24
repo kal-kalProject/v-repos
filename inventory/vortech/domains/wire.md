@@ -19,7 +19,7 @@ Capa de mensajería y contratos de transporte a nivel de aplicación Vortech: pa
 
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
-| 1 | @vortech/wire | `packages/wire` | ts | beta | broker, client, transport |
+| 1 | @vortech/wire | `packages/wire` | ts | maduro-aparente | broker, client, transport |
 
 ## 3. Responsabilidades cubiertas
 - **Broker, middleware, socket.io** — evidencia: `packages/wire/tests/socketio.test.ts:1` y múltiples `*.test.ts` en el mismo directorio.

@@ -20,7 +20,7 @@ WebSockets, engine.io, socket.io: implementación embebida bajo `sokectio/` (ár
 | # | Package | Path | Lenguaje | Madurez | Rol |
 |---|---------|------|----------|---------|-----|
 | 1..n | múltiples | `sokectio/*` (engine.io, socket.io, …) | ts | maduro-aparente | implementación de referencia / vendor |
-| n+1 | @vortech/sockets | `packages/sockets` | ts | beta | integración Vortech |
+| n+1 | @vortech/sockets | `packages/sockets` | ts | maduro-aparente | integración Vortech |
 
 ## 3. Responsabilidades cubiertas
 - **Transporte evented** — p.ej. comentarios `TODO` en `sokectio/engine.io/lib/userver.ts:321` (evidencia de código activo y deuda en upstream).

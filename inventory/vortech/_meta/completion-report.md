@@ -3,48 +3,48 @@ kind: completion-report
 source_repo: vortech
 source_commit: f55e8e0202c3ef2486d845bb87601c7366d76b90
 repo: vortech
-generated_at: 2026-04-24T20:00:00Z
+generated_at: 2026-04-24T20:30:00Z
 agent_id: cursor-inventario-fase1
-complete: false
+complete: true
 ---
 
 # Completion Report — `vortech`
 
-Este archivo se deja con `complete: false` hasta que `scripts/validate-inventory.sh vortech` retorne 0. Tras el primer OK, actualizar a `complete: true`.
+Validación: `scripts/validate-inventory.sh vortech` ejecutado desde la raíz de `v-repos` con **exit code 0** (Git Bash en Windows).
 
 ## Checklist (ref: `01-proposito-y-alcance.md` §8)
 
-- [x] Cada package clasificado tiene `summary/<slug>.md` (82 entradas)
-- [x] Cada dominio con implementación relevante mapeado a `domains/<dominio>.md` (12 archivos)
-- [x] `status/repo.md` con cinco secciones obligatorias
-- [x] Frontmatter con `source_repo` + `source_commit` en artefactos generados (excepto `source.md` intocable)
-- [x] Paths principales en `classification.md` con backticks
-- [ ] Validador de inventario: pendiente (ejecutar desde raíz `v-repos`)
+- [x] Cada package clasificado tiene un archivo bajo `inventory/vortech/summary/` (82)
+- [x] Dominios con implementación documentados en `inventory/vortech/domains/` (13 archivos)
+- [x] `status/repo.md` con secciones obligatorias (Bugs, Duplicaciones internas, Incompletitud, Deuda, Tests)
+- [x] Frontmatter con `source_repo` y `source_commit` alineados a `_meta/source.md` en los artefactos generados
+- [x] `classification.md` con paths en backticks que no inducen falsas entradas (evitar rutas con metadoc tipo repos/…/file:line en prosa)
+- [x] Validador de inventario: OK
+- [x] Anclaje canónico: `_meta/source.md` con `source_repo`; madurez en summaries y en tablas de `domains/` en tope Fase 1 (`maduro-aparente` según `prompt.md` regla 6)
 
-## Estadísticas (aprox.)
+## Estadísticas
 
 - Packages / proyectos con summary: 82
-- Dominios documentados: 12
-- Bugs con evidencia en status: 2 (bajo/observables)
-- Duplicaciones / solapes señalados: 2 tablas
-- Incompletitudes estructurales: 3+ filas
+- Dominios documentados: 13
+- Bugs con evidencia en `status`: 2 (severidad baja / deuda o upstream)
+- Solapes o duplicaciones señalados en `status` y dominios: varios (como observaciones, no conclusiones)
+- Incompletitudes estructurales listadas: Angular sin `package.json` local, TODO/FIXME muestreados, d.ts deshabilitado en v-ui tsup
 
-## Packages no clasificados (área gris)
+## Packages no clasificados
 
-- **Raíz del workspace** (`vortech-workspace`, `package.json` en el directorio de primer nivel del repo): descrita en `tree.md` y nota en `classification.md`; no tiene fila con path con `/` para el contador automático, a propósito.
+- **Workspace root** (solo `package.json` en la raíz del clon, nombre `vortech-workspace`): explicado en `tree.md` y nota al pie de `classification.md`; no tiene fila de tabla (evita path sin `/` en contador; no añade carga a summaries).
 
-## Dominios sospechados u otros
+## Dominios con cobertura parcial o cruzada
 
-- `metaquest` (quest-app + .NET) — parcialmente en `host` y dominios; no hay dominio dedicado `metaquest` (se puede añadir en Fase 2).
-- `platform/v-api-factory` — toca `codegen` y APIs; quedó vinculado en `codegen.md` de forma transversal.
-- `packages/lang`, `packages/translation` — reutilización i18n; podría extraerse dominio `i18n` en Fase 2.
+- **Meta Quest** (`metaquest/quest-app` + agente .NET): citado en summaries y en status; se puede añadir `domains/metaquest.md` en Fase 2 si hace falta trazabilidad explícita.
+- **i18n** (`packages/lang`, `packages/translation`): sin dominio dedicado; sugerido en Fase 2.
 
-## Archivos anómalos para Fase 2
+## Archivos anómalos o ruido
 
-- Ficheros “Relato*” y similares en el root del repo (narrativas no técnicas) — ruido respecto a la plataforma; no inventariados como packages.
-- `.source-insiration/` referenciada en `Vortech.sln:18-25` (rutas de inspiración / terceros) — riesgo de mezclar códigos de referencia con producto.
+- Markdown narrativo en el root del clon (Relato*, etc.): no forman packages; solo ruido para unificación.
+- Referencias en `Vortech.sln` a `.source-insiration/*`: riesgo de mezclar “inspiración” con código de producto en el mismo tree de solución.
 
-## Notas
+## Notas para Fase 2
 
-- Resúmenes mecanizados (Fase 1); profundizar “propósito inferido” y “consumidores” con greps adicionales en Fase 2.
-- Tras `validate-inventory.sh vortech` exitoso: establecer `complete: true` y ajustar esta sección de pendientes a vacío.
+- Sustituir resúmenes mecánicos por inferencia de consumidores (grep de imports) y lectura de README por package crítico.
+- Confirmar convivencia `sokectio/` frente a `packages/sockets` y `packages/wire` con propósito y límites de API.

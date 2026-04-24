@@ -33,6 +33,13 @@
     "url": "https://github.com/kal-kalProject/vortech.git",
     "branch": "main",
     "notes": "multi lang projects, clonado read-only vía HTTPS + Git Credential Manager."
+  },
+  {
+    "name": "kalProject.MsAccess",
+    "source_type": "clone",
+    "url": "https://github.com/kalProject/kalProject.MsAccess.git",
+    "branch": "main",
+    "notes": "libs msaccess, clonado read-only vía HTTPS + Git Credential Manager."
   }
 
 ]
